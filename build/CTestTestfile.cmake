@@ -1,0 +1,36 @@
+# CMake generated Testfile for 
+# Source directory: /home/lfh/catkin_ws/src
+# Build directory: /home/lfh/catkin_ws/build
+# 
+# This file includes the relevant testing commands required for 
+# testing this directory and lists subdirectories to be tested as well.
+subdirs("gtest")
+subdirs("aws-robomaker-small-house-world")
+subdirs("cobot_s_sim/cobot_moveit_config")
+subdirs("SLAM/openslam_gmapping")
+subdirs("cobot_s_sim/ranger_mini_V2/ranger_mini_control")
+subdirs("cobot_s_sim/ranger_mini_V2/ranger_mini_v2_gazebo")
+subdirs("cobot_s_sim/rm_75_robot/rm_75_bringup")
+subdirs("cobot_s_sim/rm_75_robot/rm_75_moveit_config")
+subdirs("cobot_s_sim/rm_75_robot/rm_75_robot")
+subdirs("SLAM/slam_gmapping/slam_gmapping")
+subdirs("cobot_s_sim/ranger_mini_V2/four_wheel_steering_msgs")
+subdirs("hello_world")
+subdirs("cobot_s_sim/rm_75_robot/rm_75_msgs")
+subdirs("cobot_s_sim/rm_75_robot/rm_75_demo")
+subdirs("cobot_s_sim/rm_75_robot/rm_75_driver")
+subdirs("cobot_s_sim/rm_75_robot/rm_75_description")
+subdirs("cobot_s_sim/rm_75_robot/rm_75_control")
+subdirs("SLAM/depthimage_to_laserscan")
+subdirs("cobot_nav")
+subdirs("SLAM/slam_gmapping/gmapping")
+subdirs("SLAM/localizer/rf2o_laser_odometry")
+subdirs("install/robot_pose_ekf")
+subdirs("cobot_s_sim/dh_ag95_description")
+subdirs("cobot_s_sim/rm_75_robot/rm_75_gazebo")
+subdirs("cobot_s_sim/cobot_description")
+subdirs("cobot_s_sim/ranger_mini_V2/ranger_mini_v2")
+subdirs("sim912")
+subdirs("moveit_tutorials")
+subdirs("cobot_s_sim/ranger_mini_V2/urdf_geometry_parser")
+subdirs("cobot_s_sim/ranger_mini_V2/four_wheel_steering_controller")

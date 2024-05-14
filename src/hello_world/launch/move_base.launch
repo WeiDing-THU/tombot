@@ -1,0 +1,22 @@
+<launch>
+    <node name="move_base" pkg="move_base" type="move_base" respawn="false" output="screen">
+      <rosparam file="$(find hello_world)/config/move_base_params.yaml" command="load"/>
+    </node>
+    
+    <!-- AMCL Node -->
+    <node pkg="amcl" type="amcl" name="amcl">
+        <param name="min_particles" value="100"/>
+        <param name="max_particles" value="2000"/>
+        <param name="initial_pose_x" value="0"/>
+        <param name="initial_pose_y" value="0"/>
+        <param name="initial_pose_a" value="0"/>
+        <param name="odom_frame_id" value="odom"/>
+        <param name="base_frame_id" value="base_link"/>
+        <param name="global_frame_id" value="map"/>
+        <remap from="scan" to="your_lidar_topic"/>
+    </node>
+  
+    <include file="$(find hello_world)/launch/global_costmap_params.xml"/>
+    <include file="$(find hello_world)/launch/local_costmap_params.xml"/>
+  </launch>
+  

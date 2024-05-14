@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<launch>
+    <param name="queue_size" type="int" value="50"/>  <!-- 增加队列大小 -->
+    <param name="approx_sync" type="bool" value="true"/>  <!-- 启用近似同步 -->
+
+  <!-- Basic configuration arguments -->
+  <arg name="database_path" default="rtabmap.db"/>
+  <arg name="wait_for_transform" default="0.2"/>
+  
+  <!-- Subscribe topics -->
+  <arg name="rgb_topic" default="/head_camera/color/image_raw"/>
+  <arg name="depth_topic" default="/head_camera/depth/image_raw"/>
+  <arg name="odom_topic" default="/four_wheel_steering_controller/odom"/>
+  <arg name="camera_info_topic" default="/head_camera/color/camera_info"/>
+
+  
+  <!-- RTAB-Map Node -->
+  <node name="rtabmap" pkg="rtabmap_slam" type="rtabmap" output="screen" args="--delete_db_on_start">
+    <!-- Parameters -->
+    <param name="database_path" type="string" value="$(arg database_path)"/>
+    <param name="frame_id" type="string" value="base_link"/>
+    <param name="wait_for_transform_duration" type="double" value="$(arg wait_for_transform)"/>
+    <param name="subscribe_scan" type="bool" value="true"/>
+    <param name="subscribe_odom" type="bool" value="true"/>
+    <param name="subscribe_depth" type="bool" value="false"/>
+    
+    <!-- Input remapping -->
+    <remap from="odom" to="$(arg odom_topic)"/>
+    <remap from="depth/image" to="$(arg depth_topic)"/>
+    <remap from="rgb/image" to="$(arg rgb_topic)"/>
+    <remap from="scan" to="/scan"/>
+    <remap from="rgb/camera_info" to="$(arg camera_info_topic)"/>
+
+    <!-- RTAB-Map's parameters -->
+    <param name="Kp/MaxDepth" type="double" value="7.0"/>
+    <param name="Depth/MinDepth" type="double" value="0.3"/>  <!-- 设置最小深度阈值 -->
+    <param name="RGBD/AngularUpdate" type="double" value="0.001"/>
+    <param name="RGBD/LinearUpdate" type="double" value="0.001"/>
+  </node>
+   
+</launch>

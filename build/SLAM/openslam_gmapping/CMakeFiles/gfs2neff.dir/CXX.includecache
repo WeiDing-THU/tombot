@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/lfh/catkin_ws/src/SLAM/openslam_gmapping/gridfastslam/gfs2neff.cpp
+iostream
+-
+fstream
+-
+sstream
+-
+cstring
+-
+

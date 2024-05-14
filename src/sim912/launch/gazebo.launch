@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" default="$(find sim912)/worlds/912.world"/>
+    <arg name="paused" value="true"/>
+    <arg name="gui" value="true"/>
+  </include>
+  
+</launch>

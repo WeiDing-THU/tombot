@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/lfh/catkin_ws/src/SLAM/openslam_gmapping/configfile/configfile.cpp
+cstdlib
+-
+gmapping/configfile/configfile.h
+/home/lfh/catkin_ws/src/SLAM/openslam_gmapping/configfile/gmapping/configfile/configfile.h
+fstream
+-
+iostream
+-
+string
+-
+sstream
+-
+iostream
+-
+ctype.h
+-
+
+/home/lfh/catkin_ws/src/SLAM/openslam_gmapping/include/gmapping/configfile/configfile.h
+iostream
+-
+string
+-
+map
+-
+

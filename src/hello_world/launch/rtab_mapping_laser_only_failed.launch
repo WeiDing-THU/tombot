@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- Basic configuration arguments -->
+  <arg name="database_path" default="rtabmap.db"/>
+  <arg name="wait_for_transform" default="0.2"/>
+  
+  <!-- Subscribe topics -->
+  <arg name="odom_topic" default="/four_wheel_steering_controller/odom"/>
+  <arg name="scan_topic" default="/scan"/>
+
+  <!-- RTAB-Map Node -->
+  <node name="rtabmap" pkg="rtabmap_slam" type="rtabmap" output="screen" args="--delete_db_on_start">
+    <!-- Parameters -->
+    <param name="database_path" type="string" value="$(arg database_path)"/>
+    <param name="frame_id" type="string" value="base_link"/>
+    <param name="wait_for_transform_duration" type="double" value="$(arg wait_for_transform)"/>
+    <param name="subscribe_scan" type="bool" value="true"/>
+    <param name="subscribe_odom" type="bool" value="true"/>
+    <param name="subscribe_depth" type="bool" value="false"/>
+    <param name="subscribe_rgbd" type="bool" value="false"/>
+    <param name="subscribe_stereo" type="bool" value="false"/>
+    <param name="subscribe_rgb" type="bool" value="false"/>
+    <param name="subscribe_user_data" type="bool" value="false"/>
+
+    <!-- Input remapping -->
+    <remap from="odom" to="$(arg odom_topic)"/>
+    <remap from="scan" to="$(arg scan_topic)"/>
+
+    <!-- RTAB-Map's parameters -->
+    <param name="RGBD/AngularUpdate" type="double" value="0.001"/>
+    <param name="RGBD/LinearUpdate" type="double" value="0.001"/>
+  </node>
+   
+</launch>
